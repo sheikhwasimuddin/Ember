@@ -75,6 +75,18 @@ export default {
         trust: {
           builder: "var(--color-trust-builder)", // sea-green
         },
+        // Modern Vibrant Colors
+        vibrant: {
+          orange: "#F24E1E",
+          pink: "#E1306C",
+          purple: "#833AB4",
+          instagram: "#405DE6",
+        },
+        social: {
+          instagram: "#833AB4",
+          twitter: "#1DA1F2",
+          linkedin: "#0A66C2",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -105,6 +117,11 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-in': 'slideIn 0.3s ease-out',
         'pulse-gentle': 'pulseGentle 3s ease-in-out infinite',
+        'fade-scale': 'fadeScale 0.6s ease-out',
+        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
+        'shimmer': 'shimmer 2.5s ease-in-out infinite',
+        'slide-up-bounce': 'slideUpBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        'gradient-shift': 'gradientShift 3s ease-in-out infinite',
       },
       keyframes: {
         breathe: {
@@ -129,18 +146,43 @@ export default {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' },
           '50%': { transform: 'scale(1.02)', opacity: '0.8' },
         },
+        fadeScale: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        glowPulse: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(242, 78, 30, 0.4)' },
+          '50%': { boxShadow: '0 0 20px 10px rgba(242, 78, 30, 0)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-1000px 0' },
+          '100%': { backgroundPosition: '1000px 0' },
+        },
+        slideUpBounce: {
+          '0%': { transform: 'translateY(40px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
       },
       transitionTimingFunction: {
         'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'vibrant': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
       },
       transitionDuration: {
         'smooth': '300ms',
         'breathing': '400ms',
+        'vibrant': '250ms',
       },
       boxShadow: {
         'gentle': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         'therapeutic': '0 4px 20px rgba(74, 144, 164, 0.15)',
         'organic': '0 8px 32px rgba(74, 144, 164, 0.12)',
+        'vibrant-glow': '0 0 20px rgba(242, 78, 30, 0.4)',
+        'instagram-glow': '0 0 20px rgba(131, 58, 180, 0.3)',
+        'social-lift': '0 8px 24px rgba(242, 78, 30, 0.2)',
       },
       backdropBlur: {
         'gentle': '8px',

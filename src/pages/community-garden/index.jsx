@@ -7,6 +7,7 @@ import CommunityStats from './components/CommunityStats';
 import GroupChallenges from './components/GroupChallenges';
 import SuccessStories from './components/SuccessStories';
 import CreatePostModal from './components/CreatePostModal';
+import CommunityInstagram from './components/CommunityInstagram';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
 
@@ -294,9 +295,9 @@ const CommunityGarden = () => {
                       setActiveTab(tab.id);
                       setSelectedThread(null);
                     }}
-                    className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${
+                    className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-bold text-sm whitespace-nowrap transition-all ${
                       activeTab === tab.id
-                        ? 'border-therapeutic-primary text-therapeutic-primary' :'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
+                        ? 'border-vibrant-orange text-vibrant-orange shadow-vibrant-glow' :'border-transparent text-muted-foreground hover:text-foreground hover:border-vibrant-orange/30'
                     }`}
                   >
                     <Icon name={tab.icon} size={16} />
@@ -345,37 +346,69 @@ const CommunityGarden = () => {
             {/* Sidebar */}
             <div className="lg:col-span-1 space-y-6">
               <CommunityStats stats={communityStats} />
-              <div className="bg-card border border-border rounded-lg p-6 shadow-therapeutic">
-                <h3 className="font-semibold text-foreground mb-4 flex items-center space-x-2">
-                  <Icon name="Zap" size={20} className="text-therapeutic-primary" />
-                  <span>Quick Actions</span>
+              <div className="modern-card rounded-2xl p-6 border-l-4 border-vibrant-orange shadow-lg">
+                <h3 className="font-bold text-lg text-foreground mb-4 flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-gradient-vibrant flex items-center justify-center">
+                    <Icon name="Zap" size={16} className="text-white" />
+                  </div>
+                  <span className="text-vibrant-orange">Quick Actions</span>
                 </h3>
                 <div className="space-y-3">
-                  <Button variant="outline" size="sm" onClick={handleCreatePost} iconName="Edit" iconPosition="left" iconSize={14} className="w-full justify-start">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleCreatePost}
+                    iconName="Edit"
+                    iconPosition="left"
+                    iconSize={14}
+                    className="w-full justify-start border-vibrant-orange text-vibrant-orange hover:bg-vibrant-orange/10 hover:shadow-vibrant-glow"
+                  >
                     Share Your Story
                   </Button>
-                  <Button variant="outline" size="sm" onClick={() => setActiveTab('challenges')} iconName="Trophy" iconPosition="left" iconSize={14} className="w-full justify-start">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setActiveTab('challenges')}
+                    iconName="Trophy"
+                    iconPosition="left"
+                    iconSize={14}
+                    className="w-full justify-start border-vibrant-orange text-vibrant-orange hover:bg-vibrant-orange/10 hover:shadow-vibrant-glow"
+                  >
                     Join a Challenge
                   </Button>
-                  <Button variant="outline" size="sm" iconName="Heart" iconPosition="left" iconSize={14} className="w-full justify-start border-accent text-accent hover:bg-accent hover:text-white">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    iconName="Heart"
+                    iconPosition="left"
+                    iconSize={14}
+                    className="w-full justify-start bg-gradient-vibrant text-white font-bold hover:shadow-vibrant-glow"
+                  >
                     Crisis Support
                   </Button>
                 </div>
               </div>
-              <div className="bg-card border border-border rounded-lg p-6 shadow-therapeutic">
-                <h3 className="font-semibold text-foreground mb-4 flex items-center space-x-2">
-                  <Icon name="Shield" size={20} className="text-trust-builder" />
-                  <span>Community Guidelines</span>
+              <div className="modern-card rounded-2xl p-6 border-l-4 border-trust-builder shadow-lg">
+                <h3 className="font-bold text-lg text-foreground mb-4 flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-trust-builder flex items-center justify-center">
+                    <Icon name="Shield" size={16} className="text-white" />
+                  </div>
+                  <span className="text-trust-builder">Community Guidelines</span>
                 </h3>
-                <ul className="text-sm text-muted-foreground space-y-2">
-                  <li className="flex items-start space-x-2"><Icon name="Check" size={14} className="text-success mt-0.5" /><span>Be kind and respectful to all members</span></li>
-                  <li className="flex items-start space-x-2"><Icon name="Check" size={14} className="text-success mt-0.5" /><span>Share experiences, not medical advice</span></li>
-                  <li className="flex items-start space-x-2"><Icon name="Check" size={14} className="text-success mt-0.5" /><span>Use trigger warnings for sensitive content</span></li>
-                  <li className="flex items-start space-x-2"><Icon name="Check" size={14} className="text-success mt-0.5" /><span>Maintain anonymity and privacy</span></li>
-                  <li className="flex items-start space-x-2"><Icon name="AlertTriangle" size={14} className="text-accent mt-0.5" /><span>Contact crisis support if you're in immediate danger</span></li>
+                <ul className="text-sm text-foreground/80 space-y-3">
+                  <li className="flex items-start space-x-2"><Icon name="Check" size={14} className="text-vibrant-orange mt-0.5 flex-shrink-0" /><span>Be kind and respectful to all members</span></li>
+                  <li className="flex items-start space-x-2"><Icon name="Check" size={14} className="text-vibrant-orange mt-0.5 flex-shrink-0" /><span>Share experiences, not medical advice</span></li>
+                  <li className="flex items-start space-x-2"><Icon name="Check" size={14} className="text-vibrant-orange mt-0.5 flex-shrink-0" /><span>Use trigger warnings for sensitive content</span></li>
+                  <li className="flex items-start space-x-2"><Icon name="Check" size={14} className="text-vibrant-orange mt-0.5 flex-shrink-0" /><span>Maintain anonymity and privacy</span></li>
+                  <li className="flex items-start space-x-2"><Icon name="AlertTriangle" size={14} className="text-vibrant-orange mt-0.5 flex-shrink-0" /><span>Contact crisis support if you're in immediate danger</span></li>
                 </ul>
               </div>
             </div>
+          </div>
+
+          {/* Instagram Integration Section */}
+          <div className="mt-16 mb-12">
+            <CommunityInstagram />
           </div>
         </div>
       </div>

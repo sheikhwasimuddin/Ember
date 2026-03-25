@@ -14,16 +14,16 @@
     --color-popover: #FFFFFF; /* white */
     --color-popover-foreground: #1E293B; /* slate-800 */
     --color-surface: #F1F5F9; /* slate-100 */
-    
+
     /* Border and Input Colors */
     --color-border: #E2E8F0; /* slate-200 */
     --color-input: #F1F5F9; /* slate-100 */
     --color-ring: #2563EB; /* blue-600 */
-    
+
     /* Text Colors */
     --color-muted: #F8FAFC; /* slate-50 */
     --color-muted-foreground: #64748B; /* slate-500 */
-    
+
     /* Brand Colors */
     --color-primary: #2563EB; /* blue-600 */
     --color-primary-foreground: #FFFFFF; /* white */
@@ -31,7 +31,7 @@
     --color-secondary-foreground: #FFFFFF; /* white */
     --color-accent: #DC2626; /* red-600 */
     --color-accent-foreground: #FFFFFF; /* white */
-    
+
     /* State Colors */
     --color-success: #10B981; /* emerald-500 */
     --color-success-foreground: #FFFFFF; /* white */
@@ -41,17 +41,25 @@
     --color-error-foreground: #FFFFFF; /* white */
     --color-destructive: #DC2626; /* red-600 */
     --color-destructive-foreground: #FFFFFF; /* white */
-    
+
     /* Therapeutic Depth Colors */
     --color-therapeutic-primary: #4A90A4; /* teal-600 */
     --color-therapeutic-secondary: #7B68A6; /* purple-500 */
     --color-conversion-accent: #E17B47; /* orange-500 */
     --color-trust-builder: #2E8B57; /* sea-green */
-    
+
+    /* Vibrant Modern Colors */
+    --color-vibrant-orange: #F24E1E;
+    --color-vibrant-pink: #E1306C;
+    --color-vibrant-purple: #833AB4;
+    --color-instagram-gradient-start: #F77737;
+    --color-instagram-gradient-mid: #833AB4;
+    --color-instagram-gradient-end: #C13584;
+
     /* Mood-based Adaptive Colors */
     --mood-primary: var(--color-therapeutic-primary);
     --mood-secondary: var(--color-therapeutic-secondary);
-    
+
     /* Animation Variables */
     --breathing-duration: 4s;
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -61,17 +69,17 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
   }
-  
+
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
@@ -82,62 +90,166 @@
   .breathing-pulse {
     animation: breathe var(--breathing-duration) ease-in-out infinite;
   }
-  
+
   @keyframes breathe {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
   }
-  
+
   /* Organic Shapes */
   .organic-shape {
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
     animation: morphShape 8s ease-in-out infinite;
   }
-  
+
   @keyframes morphShape {
     0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
     25% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
     50% { border-radius: 30% 70% 40% 60% / 50% 60% 30% 60%; }
     75% { border-radius: 70% 30% 60% 40% / 40% 70% 50% 30%; }
   }
-  
+
   /* Crisis Mode Styles */
   .crisis-mode {
     --color-primary: #FF6B6B;
     --color-secondary: #4ECDC4;
     font-size: 1.2em;
   }
-  
+
   /* Gentle Shadows */
   .shadow-gentle {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
-  
+
   .shadow-therapeutic {
     box-shadow: 0 4px 20px rgba(74, 144, 164, 0.15);
   }
-  
+
+  /* Modern Vibrant Shadows */
+  .shadow-vibrant-glow {
+    box-shadow: 0 0 20px rgba(242, 78, 30, 0.4);
+  }
+
+  .shadow-instagram-glow {
+    box-shadow: 0 0 20px rgba(131, 58, 180, 0.3);
+  }
+
+  .shadow-social-lift {
+    box-shadow: 0 8px 24px rgba(242, 78, 30, 0.2);
+  }
+
   /* Smooth Transitions */
   .transition-smooth {
     transition: all var(--transition-duration) var(--transition-smooth);
   }
-  
-  /* Hover Effects */
+
+  .transition-vibrant {
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Enhanced Hover Effects */
   .hover-lift {
     @apply transition-smooth;
   }
-  
+
   .hover-lift:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
-  
+
+  .hover-lift-vibrant {
+    @apply transition-vibrant;
+  }
+
+  .hover-lift-vibrant:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(242, 78, 30, 0.25);
+  }
+
+  /* Social Glow Effects */
+  .social-glow {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(242, 78, 30, 0.4); }
+    50% { box-shadow: 0 0 20px 10px rgba(242, 78, 30, 0); }
+  }
+
+  .instagram-glow {
+    animation: instagramGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes instagramGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(131, 58, 180, 0.4); }
+    50% { box-shadow: 0 0 20px 10px rgba(131, 58, 180, 0); }
+  }
+
+  /* Shimmer Effect for Social */
+  .shimmer-effect {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  /* Modern Card Styles */
+  .modern-card {
+    @apply bg-card rounded-2xl transition-vibrant;
+    border: 1px solid rgba(242, 78, 30, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%);
+  }
+
+  .modern-card:hover {
+    border-color: rgba(242, 78, 30, 0.3);
+    box-shadow: 0 8px 24px rgba(242, 78, 30, 0.15);
+  }
+
+  .modern-card-gradient {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .modern-card-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-instagram-gradient-start), var(--color-instagram-gradient-mid), var(--color-instagram-gradient-end));
+  }
+
   /* Golden Ratio Spacing */
   .spacing-golden-1 { @apply p-2; } /* 8px */
   .spacing-golden-2 { @apply p-3; } /* 13px */
   .spacing-golden-3 { @apply p-5; } /* 21px */
   .spacing-golden-4 { @apply p-8; } /* 34px */
   .spacing-golden-5 { @apply p-14; } /* 55px */
+
+  /* Gradient Text Effects */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-instagram-gradient-start), var(--color-instagram-gradient-mid), var(--color-instagram-gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-vibrant {
+    background: linear-gradient(135deg, #F24E1E, #833AB4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 @layer utilities {
@@ -145,58 +257,108 @@
   .text-therapeutic-primary {
     color: var(--color-therapeutic-primary);
   }
-  
+
   .text-therapeutic-secondary {
     color: var(--color-therapeutic-secondary);
   }
-  
+
   .text-conversion-accent {
     color: var(--color-conversion-accent);
   }
-  
+
   .text-trust-builder {
     color: var(--color-trust-builder);
   }
-  
+
+  /* Vibrant Color Utilities */
+  .text-vibrant-orange {
+    color: var(--color-vibrant-orange);
+  }
+
+  .text-vibrant-pink {
+    color: var(--color-vibrant-pink);
+  }
+
+  .text-vibrant-purple {
+    color: var(--color-vibrant-purple);
+  }
+
+  .text-instagram {
+    color: var(--color-instagram-gradient-mid);
+  }
+
   /* Background Color Utilities */
   .bg-therapeutic-primary {
     background-color: var(--color-therapeutic-primary);
   }
-  
+
   .bg-therapeutic-secondary {
     background-color: var(--color-therapeutic-secondary);
   }
-  
+
   .bg-conversion-accent {
     background-color: var(--color-conversion-accent);
   }
-  
+
   .bg-trust-builder {
     background-color: var(--color-trust-builder);
   }
-  
+
+  .bg-vibrant-orange {
+    background-color: var(--color-vibrant-orange);
+  }
+
+  .bg-vibrant-pink {
+    background-color: var(--color-vibrant-pink);
+  }
+
+  .bg-vibrant-purple {
+    background-color: var(--color-vibrant-purple);
+  }
+
+  /* Gradient Background Utilities */
+  .bg-gradient-instagram {
+    background: linear-gradient(135deg, var(--color-instagram-gradient-start), var(--color-instagram-gradient-mid), var(--color-instagram-gradient-end));
+  }
+
+  .bg-gradient-vibrant {
+    background: linear-gradient(135deg, var(--color-vibrant-orange), var(--color-vibrant-purple));
+  }
+
+  .bg-gradient-social {
+    background: linear-gradient(to right, var(--color-instagram-gradient-start), var(--color-vibrant-pink));
+  }
+
   /* Border Color Utilities */
   .border-therapeutic-primary {
     border-color: var(--color-therapeutic-primary);
   }
-  
+
   .border-therapeutic-secondary {
     border-color: var(--color-therapeutic-secondary);
   }
-  
+
+  .border-vibrant-orange {
+    border-color: var(--color-vibrant-orange);
+  }
+
+  .border-instagram {
+    border-color: var(--color-instagram-gradient-mid);
+  }
+
   /* Mood Adaptive Colors */
   .mood-primary {
     color: var(--mood-primary);
   }
-  
+
   .bg-mood-primary {
     background-color: var(--mood-primary);
   }
-  
+
   .mood-secondary {
     color: var(--mood-secondary);
   }
-  
+
   .bg-mood-secondary {
     background-color: var(--mood-secondary);
   }
